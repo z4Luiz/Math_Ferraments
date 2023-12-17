@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Unidade</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'geometria', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="calculator-container">
+    <h1>Calculadora de Área</h1>
+
+    <!-- Triângulo -->
+    <div class="shape-section">
+      <h2>Triângulo</h2>
+      <div class="input-section">
+        <label for="base">Base:</label>
+        <input type="number" id="base" placeholder="Insira a base" required>
+      </div>
+      <div class="input-section">
+        <label for="height">Altura:</label>
+        <input type="number" id="height" placeholder="Insira a altura" required>
+      </div>
+      <button id="calculateTriangle">Calcular Área</button>
+      <p class="result" id="resultTriangle">Área: 0</p>
+    </div>
+
+    <!-- Quadrado -->
+    <div class="shape-section">
+      <h2>Quadrado</h2>
+      <div class="input-section">
+        <label for="side">Lado:</label>
+        <input type="number" id="side" placeholder="Insira o lado" required>
+      </div>
+      <button id="calculateSquare">Calcular Área</button>
+      <p class="result" id="resultSquare">Área: 0</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Conversor de Unidade</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag 'conversor', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+      <%= form_tag({ controller: 'ferraments', action: 'conversor' }, method: :post, remote: true, url: conversor_path) do %>
+      <div class="converter-container">
+        <h1>Conversor de Unidades</h1>
+
+        <div class="input-section">
+          <label for="inputValue">Valor:</label>
+          <%= number_field_tag 'valor', nil, id: 'inputValue', placeholder: 'Insira o valor', required: true %>
+        </div>
+
+        <div class="unit-selection">
+          <label for="fromUnit">De:</label>
+            <%= select_tag 'unidade_entrada', options_for_select([['Metro', 'metro'], ['Centimetro', 'centimetro'], ['Milimetro', 'milimetro']]), id: 'fromUnit' %>
+
+          <label for="toUnit">Para:</label>
+            <%= select_tag 'unidade_saida', options_for_select([['Metro', 'metro'], ['Centimetro', 'centimetro'], ['Milimetro', 'milimetro']]), id: 'toUnit' %>
+        </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <%= submit_tag 'Converter', id: 'convertBtn' %>
+
+        <div class="result-section">
+          <p>Resultado:</p>
+          <span id="resultValue"><%= @valor %></span>
+        </div>
+      </div>
+     <% end %>
+    </body>

@@ -1,0 +1,32 @@
+run = "rails server --binding=0.0.0.0"
+entrypoint = "app/controllers/application_controller.rb"
+
+hidden = [".bundle"]
+
+[env]
+PATH = "/home/runner/${REPL_SLUG}/bin"
+EDITOR = "nano"
+RACK_MINI_PROFILER = "off"
+PIDFILE = "/tmp/rails_server.pid"
+
+[packager]
+language = "ruby"
+
+[packager.features]
+packageSearch = true
+guessImports = true
+
+[nix]
+channel = "stable-21_11"
+
+[languages]
+
+[languages.ruby]
+pattern = "**/*.rb"
+
+[languages.ruby.languageServer]
+start = "solargraph stdio"
+
+[deployment]
+run = ["rails", "server", "--binding=0.0.0.0"]
+deploymentTarget = "gce"
