@@ -3,41 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conversor de Unidade</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'geometria', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
+  <%= form_tag({ controller: 'ferraments', action: 'geometria' }, method: :post, remote: true, url: geometria_path) do %>
   <div class="calculator-container">
     <h1>Calculadora de Área</h1>
 
-    <!-- Triângulo -->
-    <div class="shape-section">
+    <div class="shape-section" id="triangle-section">
       <h2>Triângulo</h2>
       <div class="input-section">
         <label for="base">Base:</label>
-        <input type="number" id="base" placeholder="Insira a base" required>
+        <%= number_field_tag 'base', nil, id: 'base', placeholder: 'Insira a base', required: true %>
       </div>
       <div class="input-section">
         <label for="height">Altura:</label>
-        <input type="number" id="height" placeholder="Insira a altura" required>
+        <%= number_field_tag 'altura', nil, id: 'height', placeholder: 'Insira a altura', required: true %>
       </div>
-      <button id="calculateTriangle">Calcular Área</button>
-      <p class="result" id="resultTriangle">Área: 0</p>
+      <p class="result" id="resultTriangle">Área: <%= @area_triangulo %> <br> Perímetro: <%= @perimetro_triangulo %></p>
     </div>
 
-    <!-- Quadrado -->
-    <div class="shape-section">
+    <div class="shape-section" id="square-section">
       <h2>Quadrado</h2>
       <div class="input-section">
         <label for="side">Lado:</label>
-        <input type="number" id="side" placeholder="Insira o lado" required>
+        <%= number_field_tag 'lado', nil, id: 'side', placeholder: 'Insira o lado', required: true %>
       </div>
-      <button id="calculateSquare">Calcular Área</button>
-      <p class="result" id="resultSquare">Área: 0</p>
+      <p class="result" id="resultSquare">Área: <%= @area_quadrado %> <br> Perímetro: <%= @perimetro_quadrado %> <br> Diagonal: <%= @diagonal_quadrado %></p>
+      <%= submit_tag 'Calcular Área', id: 'calculateSquare' %>
     </div>
   </div>
-
+  <% end %>
 </body>
 </html>

@@ -21,6 +21,14 @@ class FerramentsController < ApplicationController
   end
 
   def geometria
-    
+    @base = params[:base].to_f
+    @altura = params[:altura].to_f
+    @lado = params[:lado].to_f
+
+    @area_triangulo = @base * @altura / 2
+    @perimetro_triangulo = @base * 3
+    @area_quadrado = @lado * @lado
+    @perimetro_quadrado = @lado * 4
+    @diagonal_quadrado = "#{@lado}√2"
   end
 end
