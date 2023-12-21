@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'equacao', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <%= form_tag({ controller: 'ferraments', action: 'equacao' }, method: :post, remote: true, url: equacao_path) do %>
+        <div class="calculator-container">
+          <h1>Calculadora de Equação de Segundo Grau</h1>
+
+          <div class="equation-section">
+            <div class="input-section">
+              <label for="a">Coeficiente A:</label>
+              <%= number_field_tag 'coeficiente_a', nil, id: 'a', placeholder: 'Insira o coeficiente A' %>
+            </div>
+            <div class="input-section">
+              <label for="b">Coeficiente B:</label>
+              <%= number_field_tag 'coeficiente_b', nil, id: 'b', placeholder: 'Insira o coeficiente B' %>
+            </div>
+            <div class="input-section">
+              <label for="c">Coeficiente C:</label>
+              <%= number_field_tag 'coeficiente_c', nil, id: 'c', placeholder: 'Insira o coeficiente C' %>
+            </div>
+            <p class="result" id="resultEquation">x1 = <%= @x1 %> <br> x2 = <%= @x2 %></p>
+            <%= submit_tag 'Calcular Raízes', id: 'calculateEquation' %>
+          </div>
+        </div>
+  <% end %>
+  <% if @delta < 0 %>
+    <script>
+      alert("<%= flash[:alert] %>");
+    </script>
+  <% end %>
+
+  <% if @coeficiente_a == 0 %>
+    <script>
+      alert("<%= flash[:alert1] %>");
+    </script>
+  <% end %>
+</body>
+</html>

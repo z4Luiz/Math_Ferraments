@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,32 +9,32 @@
 </head>
 <body>
   <%= form_tag({ controller: 'ferraments', action: 'geometria' }, method: :post, remote: true, url: geometria_path) do %>
-  <div class="calculator-container">
-    <h1>Calculadora de Área</h1>
+    <div class="calculator-container">
+      <h1>Calculadora de Área</h1>
 
-    <div class="shape-section" id="triangle-section">
-      <h2>Triângulo</h2>
-      <div class="input-section">
-        <label for="base">Base:</label>
-        <%= number_field_tag 'base', nil, id: 'base', placeholder: 'Insira a base', required: true %>
+      <div class="shape-section" id="triangle-section">
+        <h2>Triângulo</h2>
+        <div class="input-section">
+          <label for="base">Base:</label>
+          <%= number_field_tag 'base', nil, id: 'base', placeholder: 'Insira a base' %>
+        </div>
+        <div class="input-section">
+          <label for="height">Altura:</label>
+          <%= number_field_tag 'altura', nil, id: 'height', placeholder: 'Insira a altura' %>
+        </div>
+        <p class="result" id="resultTriangle">Área: <%= @area_triangulo %> <br> Perímetro: <%= @perimetro_triangulo %></p>
       </div>
-      <div class="input-section">
-        <label for="height">Altura:</label>
-        <%= number_field_tag 'altura', nil, id: 'height', placeholder: 'Insira a altura', required: true %>
-      </div>
-      <p class="result" id="resultTriangle">Área: <%= @area_triangulo %> <br> Perímetro: <%= @perimetro_triangulo %></p>
-    </div>
 
-    <div class="shape-section" id="square-section">
-      <h2>Quadrado</h2>
-      <div class="input-section">
-        <label for="side">Lado:</label>
-        <%= number_field_tag 'lado', nil, id: 'side', placeholder: 'Insira o lado', required: true %>
+      <div class="shape-section" id="square-section">
+        <h2>Quadrado</h2>
+        <div class="input-section">
+          <label for="side">Lado:</label>
+          <%= number_field_tag 'lado', nil, id: 'side', placeholder: 'Insira o lado' %>
+        </div>
+        <p class="result" id="resultSquare">Área: <%= @area_quadrado %> <br> Perímetro: <%= @perimetro_quadrado %> <br> Diagonal: <%= @diagonal_quadrado %></p>
+        <%= submit_tag 'Calcular Área', id: 'calculateSquare' %>
       </div>
-      <p class="result" id="resultSquare">Área: <%= @area_quadrado %> <br> Perímetro: <%= @perimetro_quadrado %> <br> Diagonal: <%= @diagonal_quadrado %></p>
-      <%= submit_tag 'Calcular Área', id: 'calculateSquare' %>
     </div>
-  </div>
   <% end %>
 </body>
 </html>

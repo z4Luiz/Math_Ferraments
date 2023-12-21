@@ -7,7 +7,7 @@
         <%= stylesheet_link_tag 'conversor', media: 'all', 'data-turbolinks-track': 'reload' %>
     </head>
     <body>
-      <%= form_tag({ controller: 'ferraments', action: 'conversor' }, method: :post, remote: true, url: conversor_path) do %>
+      <%= form_tag({ controller: 'ferraments', action: 'conversor' }, method: :post, remote: true, url: controller_path) do %>
       <div class="converter-container">
         <h1>Conversor de Unidades</h1>
 

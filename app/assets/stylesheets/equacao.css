@@ -19,7 +19,7 @@ body {
   width: 100%;
 }
 
-.shape-section {
+.equation-section {
   margin-top: 20px;
   border: 1px solid #ddd;
   padding: 15px;
@@ -35,7 +35,7 @@ label {
   margin-bottom: 8px;
 }
 
-#base, #height, #side {
+#a, #b, #c {
   width: calc(100% - 16px);
   padding: 10px;
   box-sizing: border-box;
@@ -44,7 +44,7 @@ label {
   border-radius: 4px;
 }
 
-#calculateTriangle, #calculateSquare {
+#calculateEquation {
   background-color: #4caf50;
   color: #fff;
   border: none;
