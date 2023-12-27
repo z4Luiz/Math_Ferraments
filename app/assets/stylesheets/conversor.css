@@ -40,15 +40,26 @@ select,
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+input {
+  padding-left: 1px;
+}
+
+input:focus,
+select:focus {
+  border-color: #4caf50;
 }
 
 #convertBtn {
   background-color: #4caf50;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+#convertBtn:hover {
   background-color: #45a049;
 }
 
@@ -60,4 +71,11 @@ button:hover {
   font-size: 20px;
   font-weight: bold;
   color: #4caf50;
+  display: block;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+#resultValue:hover {
+  color: #45a049;
 }

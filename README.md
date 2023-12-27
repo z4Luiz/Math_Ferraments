@@ -1,99 +1,78 @@
-# Rails on Replit
+# MathFerraments
 
-This is a template to get you started with Rails on Replit. It's ready to go so you can just hit run and start coding!
+Welcome to the Mathematical Ferraments! This web application is built using Ruby on Rails and provides three main functionalities: Unit Conversion, Quadratic Equation Solver, and Geometry Calculator.
 
-This template was generated using `rails new` (after you install the `rails` gem from the packager sidebar) so you can always do that if you prefer to set it up from scratch. We only made a couple changes to make to run it on Replit:
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Running the App](#running-the-app)
+  - [Running Commands](#running-commands)
+  - [Database](#database)
+  - [Securing Your App](#securing-your-app)
+- [Usage](#usage)
+  - [Unit Conversion](#unit-conversion)
+  - [Quadratic Equation Solver](#quadratic-equation-solver)
+  - [Geometry Calculator](#geometry-calculator)
+- [Contributing](#contributing)
+- [Support](#support)
 
-- bind the app on `0.0.0.0` instead of `localhost` (see `.replit`)
-- allow `*.repl.co` hosts (see `config/environments/development.rb`)
-- allow the app to be iframed on `replit.com` (see `config/application.rb`)
+## Features
 
-## Running the app
+1. **Unit Conversion:**
+   - Convert values between different units of measurement (e.g., length, mass, volume).
+   - Select the input and output units to perform the conversion.
 
-Simply hit run! You can edit the run command from the `.replit` file.
+2. **Quadratic Equation Solver:**
+   - Solve quadratic equations by entering the coefficients (A, B, C).
+   - View the roots (solutions) of the quadratic equation.
 
-## Running commands
+3. **Geometry Calculator:**
+   - Calculate the area, perimeter, and diagonal of geometric shapes (e.g., triangle, square).
+   - Input the required parameters and receive instant calculations.
 
-Start every command with `bundle exec` so that it runs in the context of the installed gems environment. The console pane will give you output from the server but you can run arbitrary commands from the shell without stopping the server.
+## Getting Started
 
-## Database
+### Running the App
 
-SQLite would work in development but we don't recommend running it in production. Instead look into using the built-in [Replit database](http://docs.replit.com/misc/database). Otherwise you are welcome to connect databases from your favorite provider. 
+To run the app, simply hit the "Run" button on your chosen development environment. The project includes necessary configurations for Replit, ensuring a seamless setup.
 
-## Securing your app
+### Running Commands
 
-The default setup runs Rails in *development mode*, which is fine for learning
-Rails and building small projects where security is not a big concern.
-If you are building more ambitious projects with users and access control, 
-you may want to tighten up the app's security. Here are the steps to securing your app:
+Execute commands using `bundle exec` to run them in the context of the installed gems environment. The console pane provides server output, and you can run additional commands from the shell without stopping the server.
 
-1. Generate your master key
-2. Run the `rails credentials:edit` command
-3. Edit your run command to run Rails in production mode
+### Database
 
-We'll go through each step in more detail below. You can also
-follow along with this [5 minute video](https://www.loom.com/share/e17ccdb58249402b95b458e6c6bedb5d) which walks you through.
+While SQLite is suitable for development, consider exploring the built-in [Replit database](http://docs.replit.com/misc/database) or connecting to databases from your preferred provider for production use.
 
-### 1. Generate your master key
+### Securing Your App
 
-In rails, the master key is a master password that's used to encrypt all of the secret information
-that is used by the application. Usually, this contained in a file `config/master.key`,
-but in an repl, we don't store secrets in files because they are publicly viewable. Instead
-we create a secret.
+Follow the steps outlined in the [Securing Your App](#securing-your-app) section of the template README to enhance the security of your Rails application.
 
-1. Open the "Secrets (environment variables)" panel (the lock icon)
-2. Add a new secret with the key of RAILS_MASTER_KEY
-3. Run these commands in the shell to generate a random key:
-```
-irb
-require 'securerandom'
-puts SecureRandom.hex(16)
-```
-4. Copy the random value from the shell to the secret value field
-5. Refresh the browser to let the secret take affect in the shell
+## Usage
 
-### 2. Run the `rails credentials:edit` command
+### Unit Conversion
 
-This step will create the `config/credentials.enc.yml` file, which will contain the secret
-values used by the Rails application and is encrypted with the master key. Even if someone
-obtained `config/credentials.enc.yml`, they will not be able to read its contents without
-your master key.
+1. Enter a numerical value in the input field.
+2. Choose the unit of measurement for the input value.
+3. Select the desired unit for the conversion.
+4. Click the "Convert" button to view the converted result.
 
-1. In the shell, run:
+### Quadratic Equation Solver
 
-```
-rails credentials:edit
-```
+1. Input the coefficients (A, B, C) of the quadratic equation.
+2. Click the "Calculate Roots" button.
+3. View the roots (solutions) of the quadratic equation.
 
-2. This will open the `nano` editor which will allow you to edit the file in YAML format.
-Here, you have the option of adding additional secret information, such as API keys for 3rd
-party services. It will initially contain a single secret value called `secret_key_base`
-which is used to encrypt session cookies. Hit Ctrl-X to exit nano and this file will be
-encrypted and saved.
+### Geometry Calculator
 
-### 3. Edit your run command to run Rails in production mode
+1. Choose a geometric shape (e.g., triangle, square).
+2. Enter the required parameters (base, height, side, etc.).
+3. Click the "Calculate" button to view area, perimeter, and diagonal calculations.
 
-Now we need to tell Rails to run in production mode.
-It will not use the credentials file otherwise. To do this:
+## Contributing
 
-1. If don't see the `.replit` file, select "Show hidden files"
-under the triple dot menu on the "Files" panel.
-2. Open `.replit` and find the run command. Change it to read:
-`rails server --binding=0.0.0.0`
-3. Hit the run button, again, and now you are running in production mode!
+Contributions are welcome! If you have ideas for improvements, feel free to fork the repository, create a branch, and submit a pull request.
 
-There are some differences between how production mode works from
-dev mode. One difference is it won't show the normal Rails
-welcome screen.
+## Support
 
-### More about security
-
-If you were wondering why running in development is insecure, Rails generates
-a secret_key_base based on the name of your app. So if someone knows the name of
-your app, they can guess your secret_key_base.
-If you'd like to learn more about security in Rails, read
-[Securing Rails Applications](https://guides.rubyonrails.org/security.html) on rubyonrails.org.
-
-## Help
-
-If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Feel free to report bugs and give us feedback [here](https://replit.com/support).
+If you need assistance or have questions, refer to our [report bugs/feedback](https://replit.com/@seigma). Happy coding!

@@ -1,49 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Página Inicial</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    
-    <header>
-      <div class="container">
-          <%= image_tag("https://w7.pngwing.com/pngs/818/209/png-transparent-mathematics-quotient-s-child-presentation-cartoon.png", alt: "Seu Logo", width: "200", height: "200") %>
-      </div>
-    </header>
-  
-    <section class="hero">
-      <div class="container">
-        <h2>Bem-vindo à MathFerraments</h2>
-        <p>Descrição ou mensagem de boas-vindas.</p>
-      </div>
-    </section>
-  
-    <section class="features">
-      <div class="container">
-        <div class="feature">
-          <i class="fas fa-balance-scale"></i>
-          <h3>Conversor</h3>
-          <p>Converta unidades de medida de forma fácil.</p>
-          <%= link_to 'Ir para Conversor', conversor_path, class: 'btn' %>
-        </div>
-        <div class="feature">
-          <i class="fas fa-draw-polygon"></i>
-          <h3>Geometria</h3>
-          <p>Calcule áreas, perímetros e diagonais de formas geométricas.</p>
-          <%= link_to 'Ir para Geometria', geometria_path, class: 'btn' %>
-        </div>
-        <div class="feature">
-          <i class="fas fa-superscript"></i>
-          <h3>Equação de 2º Grau</h3>
-          <p>Encontre as raízes reais de uma equação quadrática.</p>
-          <%= link_to 'Ir para Equação', equacao_path, class: 'btn' %>
-        </div>
-      </div>
-    </section>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicial</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="home-container">
+    <h1>Bem-vindo à Minha Calculadora</h1>
+    <p>Explore nossas ferramentas para conversão de unidades, cálculos de equações e geometria.</p>
+
+    <div class="tool-buttons">
+      <%= link_to conversor_path, class: "tool-button" do %>
+        <span class="button-icon">📏</span>
+        <span class="button-title">Conversor de Unidade</span>
+      <% end %>
+
+      <%= link_to equacao_path, class: "tool-button" do %>
+        <span class="button-icon">🔢</span>
+        <span class="button-title">Calculadora de Equação</span>
+      <% end %>
+
+      <%= link_to geometria_path, class: "tool-button" do %>
+        <span class="button-icon">🔺</span>
+        <span class="button-title">Calculadora de Área</span>
+      <% end %>
+    </div>
+  </div>
+</body>
 </html>

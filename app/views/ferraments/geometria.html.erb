@@ -10,29 +10,24 @@
 <body>
   <%= form_tag({ controller: 'ferraments', action: 'geometria' }, method: :post, remote: true, url: geometria_path) do %>
     <div class="calculator-container">
-      <h1>Calculadora de Área</h1>
-
       <div class="shape-section" id="triangle-section">
         <h2>Triângulo</h2>
-        <div class="input-section">
-          <label for="base">Base:</label>
-          <%= number_field_tag 'base', nil, id: 'base', placeholder: 'Insira a base' %>
-        </div>
-        <div class="input-section">
-          <label for="height">Altura:</label>
-          <%= number_field_tag 'altura', nil, id: 'height', placeholder: 'Insira a altura' %>
-        </div>
+        <label for="base">Base:</label>
+        <%= number_field_tag 'base', nil, id: 'base', placeholder: 'Insira a base' %>
+        <label for="height">Altura:</label>
+        <%= number_field_tag 'altura', nil, id: 'height', placeholder: 'Insira a altura' %>
+        <%= submit_tag 'Calcular Área', id: 'calculateTriangle' %>
         <p class="result" id="resultTriangle">Área: <%= @area_triangulo %> <br> Perímetro: <%= @perimetro_triangulo %></p>
       </div>
 
       <div class="shape-section" id="square-section">
-        <h2>Quadrado</h2>
-        <div class="input-section">
-          <label for="side">Lado:</label>
-          <%= number_field_tag 'lado', nil, id: 'side', placeholder: 'Insira o lado' %>
-        </div>
-        <p class="result" id="resultSquare">Área: <%= @area_quadrado %> <br> Perímetro: <%= @perimetro_quadrado %> <br> Diagonal: <%= @diagonal_quadrado %></p>
+        <h2>Retângulo</h2>
+        <label for="side">Base:</label>
+        <%= number_field_tag 'base1', nil, id: 'side', placeholder: 'Insira a base' %>
+        <label for="height">Altura:</label>
+        <%= number_field_tag 'altura1', nil, id: 'height', placeholder: 'Insira a altura' %>
         <%= submit_tag 'Calcular Área', id: 'calculateSquare' %>
+        <p class="result" id="resultSquare">Área: <%= @area_retangulo %> <br> Perímetro: <%= @perimetro_retangulo %> <br> Diagonal: <%= @diagonal_retangulo %></p>
       </div>
     </div>
   <% end %>
